@@ -1,0 +1,20 @@
+# パッケージマネージャのロックファイル
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ビルド成果物
+.next
+out
+build
+dist
+
+# node_modules はもちろん除外
+node_modules
+
+# 環境ファイル・設定ファイル
+.env
+*.local
+
+# キャッシュやログ
+*.log
