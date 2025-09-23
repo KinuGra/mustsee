@@ -11,4 +11,6 @@ pnpm lint → ESLint だけ実行
 pnpm format → Prettier だけ実行
 pnpm check → ESLint + Prettier のチェック
 pnpm fix → ESLint の autofix + Prettier 整形をまとめて実行
+
+最初の方のコミットでeslint, prettier, CIの設定をしているのでここにメモしておく
 ```
