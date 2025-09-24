@@ -11,4 +11,14 @@
 .container h1 {
   text-align: center;
   margin-bottom: 20px;
+  font-size: 25px;
+}
+
+.container button {
+  color: white;
+  background-color: rgb(70, 110, 243);
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: block;
+  margin: auto;
 }
