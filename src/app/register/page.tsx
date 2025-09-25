@@ -29,23 +29,23 @@ export default function Register() {
     <div className={styles.container}>
       <h1>新規登録</h1>
       <form>
-        <label>
-          mail:
+        <div className={styles.field}>
           <input
             type="email"
             value={email}
+            placeholder="mail"
             onChange={(event) => setEmail(event.target.value)}
           />
-        </label>
+        </div>
         <br />
-        <label>
-          password:
+        <div className={styles.field}>
           <input
             type="password"
             value={password}
+            placeholder="password"
             onChange={(event) => setPassword(event.target.value)}
           />
-        </label>
+        </div>
         <br />
         <button type="button" onClick={doRegister}>
           登録
