@@ -48,7 +48,7 @@ export default function Register() {
         </div>
         <br />
         <button type="button" onClick={doRegister}>
-          登録
+          新規登録する
         </button>
       </form>
     </div>
