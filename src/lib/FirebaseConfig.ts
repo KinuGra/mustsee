@@ -3,6 +3,7 @@ import { getAnalytics } from "firebase/analytics";
 // Firestoreはログインやユーザー登録の実装には使わないが、今後のことを考えて入れておく
 import { getFirestore, Firestore } from "firebase/firestore";
 import { getAuth, Auth } from "firebase/auth";
+import { getDatabase, Database } from "firebase/database";
 
 // .envファイルで設定した環境変数をfirebaseConfigに入れる
 const firebaseConfig = {
@@ -12,6 +13,7 @@ const firebaseConfig = {
   storageBucket: process.env.NEXT_PUBLIC_STORAGEBUCKET,
   messagingSenderId: process.env.NEXT_PUBLIC_MESSAGINGSENDERID,
   appId: process.env.NEXT_PUBLIC_APPID,
+  databaseURL: process.env.NEXT_PUBLIC_DATABASE_URL,
 };
 
 // Firebase アプリを一度だけ初期化
@@ -21,10 +23,11 @@ const app: FirebaseApp =
 // 各サービスを取得
 const auth: Auth = getAuth(app);
 const firestore: Firestore = getFirestore(app);
+const db: Database = getDatabase(app);
 
 // Analytics はブラウザ環境でのみ有効
 if (typeof window !== "undefined") {
   getAnalytics(app);
 }
 
-export { app, auth, firestore };
+export { app, auth, firestore, db };
