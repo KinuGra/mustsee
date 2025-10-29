@@ -4,17 +4,19 @@ import { auth } from "@/lib/FirebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import styles from "./Login.module.css";
+import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
   const doSignIn = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        alert("ログイン完了");
         console.log(user);
+        router.push("/chat");
       })
       .catch((error) => {
         console.error("ログイン失敗:", error);
