@@ -23,9 +23,11 @@ const ChatPage = () => {
       uid: string;
       name: string;
       text: string;
+      priority: number;
       timestamp: number;
     }[]
   >([]);
+  const [priority, setPriority] = useState<number>(0);
   const [text, setText] = useState("");
 
   const handleLogout = async () => {
@@ -80,10 +82,12 @@ const ChatPage = () => {
       uid: user.uid,
       name: user.displayName || "名無し",
       text: text.trim(),
+      priority: priority,
       timestamp: Date.now(),
     });
 
     setText("");
+    setPriority(0);
   };
 
   if (loading) return <div>Loading...</div>;
@@ -95,7 +99,8 @@ const ChatPage = () => {
 
       {messages.map((msg, index) => (
         <div key={index}>
-          <b>{msg.name}</b>: {msg.text}
+          <b>{msg.name}</b>: {msg.text}{" "}
+          {msg.priority ? <strong>重要</strong> : null}
         </div>
       ))}
 
@@ -106,6 +111,7 @@ const ChatPage = () => {
           onChange={(e) => setText(e.target.value)}
           placeholder="メッセージを入力"
         />
+        <button onClick={() => setPriority(1)}>確認必須</button>
         <button onClick={sendMessage}>送信</button>
       </div>
     </>
