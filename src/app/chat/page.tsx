@@ -13,7 +13,7 @@ const ChatPage = () => {
     try {
       await signOut(auth); // Firebaseからログアウト
     } catch (error) {
-      console.log("ログアウトに失敗しました。");
+      console.log("ログアウトに失敗しました:", error);
     }
   };
 
@@ -29,7 +29,7 @@ const ChatPage = () => {
     return () => {
       unsubscribe();
     };
-  }, [auth, router]);
+  }, [router]);
   return (
     <>
       <h1>チャット画面</h1>
