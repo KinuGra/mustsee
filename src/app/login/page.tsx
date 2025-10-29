@@ -1,20 +1,48 @@
+"use client";
+
+import { auth } from "@/lib/FirebaseConfig";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
 import styles from "./Login.module.css";
 
 const LoginPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const doSignIn = () => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        alert("ログイン完了");
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error("ログイン失敗:", error);
+      });
+  };
+
   return (
     <>
       <div className={styles.card}>
         <h1>ログイン</h1>
         <form>
           <div className={styles.field}>
-            <input type="email" placeholder="mail"></input>
+            <input
+              type="email"
+              placeholder="mail"
+              onChange={(event) => setEmail(event.target.value)}
+            ></input>
           </div>
           <br />
           <div className={styles.field}>
-            <input type="password" placeholder="password"></input>
+            <input
+              type="password"
+              placeholder="password"
+              onChange={(event) => setPassword(event.target.value)}
+            ></input>
           </div>
           <br />
-          <button type="button" className={styles.button}>
+          <button type="button" className={styles.button} onClick={doSignIn}>
             ログイン
           </button>
         </form>
