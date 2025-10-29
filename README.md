@@ -13,6 +13,9 @@ pnpm fix → ESLint の autofix + Prettier 整形をまとめて実行
 
 Firebase
 pnpm i firebase
+
+Mantine
+mantine.devのgetting-startedを参照
 ```
 
 最初の方のコミットでeslint, prettier, CIの設定をしているのでここにメモしておく
