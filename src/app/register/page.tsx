@@ -15,7 +15,7 @@ export default function Register() {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
-        password
+        password,
       );
       const user = userCredential.user;
       alert("登録完了");
@@ -48,7 +48,7 @@ export default function Register() {
         </div>
         <br />
         <button type="button" onClick={doRegister}>
-          新規登録する
+          新規登録
         </button>
       </form>
     </div>

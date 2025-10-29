@@ -3,25 +3,20 @@ import styles from "./Login.module.css";
 const LoginPage = () => {
   return (
     <>
-      <div>
-        <form className={styles.card}>
-          <div>
-            <input
-              className={styles.field}
-              type="email"
-              placeholder="mail"
-            ></input>
+      <div className={styles.card}>
+        <h1>ログイン</h1>
+        <form>
+          <div className={styles.field}>
+            <input type="email" placeholder="mail"></input>
           </div>
-          <div>
-            <input
-              className={styles.field}
-              type="password"
-              placeholder="password"
-            ></input>
+          <br />
+          <div className={styles.field}>
+            <input type="password" placeholder="password"></input>
           </div>
-          <div className={styles.button}>
-            <button type="button">ログイン</button>
-          </div>
+          <br />
+          <button type="button" className={styles.button}>
+            ログイン
+          </button>
         </form>
       </div>
     </>
